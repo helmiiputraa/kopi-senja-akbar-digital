@@ -22,12 +22,12 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-stone-100 flex items-center justify-center p-4 relative overflow-hidden">
       {/* Background Decoration */}
-      <div className="absolute top-0 left-0 w-full h-64 bg-amber-900 rounded-b-[3rem] z-0"></div>
+      <div className="absolute top-0 left-0 w-full h-64 bg-[#C4A574] rounded-b-[3rem] z-0"></div>
 
       {/* Card Form */}
       <div className="bg-white p-8 rounded-3xl shadow-xl w-full max-w-md relative z-10 border border-stone-100">
         <div className="text-center mb-8">
-          <div className="bg-amber-100 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="bg-[#C4A574]/20 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4">
             <img
               src="/LogoKopiSenja.png"
               alt="Kopi Senja Logo"
@@ -53,39 +53,47 @@ const Login = () => {
                 placeholder="Contoh: Budi"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                className="w-full pl-12 pr-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C4A574] focus:border-transparent transition-all"
                 required
               />
             </div>
           </div>
 
-          {/* Input Nomor Meja */}
-          <div className="space-y-2">
-            <label className="text-sm font-semibold text-stone-700 ml-1">
-              Nomor Meja
+          {/* Input Nomor Meja - Grid Design */}
+          <div className="space-y-3">
+            <label className="text-sm font-semibold text-stone-700 ml-1 flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-[#C4A574]" />
+              Pilih Nomor Meja
             </label>
-            <div className="relative">
-              <MapPin className="absolute left-4 top-3.5 h-5 w-5 text-stone-400" />
-              <select
-                value={table}
-                onChange={(e) => setTable(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all appearance-none cursor-pointer"
-                required
-              >
-                <option value="">Pilih Nomor Meja</option>
-                {[...Array(20)].map((_, i) => (
-                  <option key={i} value={i + 1}>
-                    Meja {i + 1}
-                  </option>
-                ))}
-              </select>
+            <div className="grid grid-cols-5 gap-2">
+              {[...Array(20)].map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setTable(String(i + 1))}
+                  className={`
+                    py-3 rounded-xl font-bold text-sm transition-all duration-200
+                    ${table === String(i + 1)
+                      ? 'bg-[#C4A574] text-white shadow-lg scale-105'
+                      : 'bg-stone-100 text-stone-600 hover:bg-[#C4A574]/20 hover:text-[#C4A574] border border-stone-200'
+                    }
+                  `}
+                >
+                  {i + 1}
+                </button>
+              ))}
             </div>
+            {table && (
+              <p className="text-center text-sm text-[#C4A574] font-medium mt-2">
+                Meja {table} dipilih
+              </p>
+            )}
           </div>
 
           {/* Tombol Submit */}
           <button
             type="submit"
-            className="w-full bg-amber-800 text-white py-3.5 rounded-xl font-bold text-lg hover:bg-amber-900 transition-all shadow-lg hover:shadow-amber-900/20 flex items-center justify-center gap-2"
+            className="w-full bg-[#C4A574] text-white py-3.5 rounded-xl font-bold text-lg hover:bg-[#B69565] transition-all shadow-lg flex items-center justify-center gap-2"
           >
             Mulai Pesan <ChevronRight className="h-5 w-5" />
           </button>

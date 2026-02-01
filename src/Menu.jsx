@@ -14,10 +14,15 @@ import {
   Mail,
   Clock,
   Instagram,
-  Facebook,
   ChevronDown,
-  Heart,
 } from "lucide-react";
+
+// Custom TikTok Icon
+const TikTok = ({ className }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+  </svg>
+);
 
 // --- DATA MENU (52 ITEMS) ---
 const MENU_ITEMS = [
@@ -475,23 +480,23 @@ const Navbar = ({ cart }) => {
               alt="Kopi Senja Logo"
               className="h-10 w-10 object-contain"
             />
-            <span className="font-bold text-xl text-amber-900">Kopi Senja</span>
+            <span className="font-bold text-xl text-[#C4A574]">Kopi Senja</span>
           </div>
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => navigate("/")}
-              className="text-stone-600 hover:text-amber-800 font-medium transition-colors"
+              className="text-stone-600 hover:text-[#C4A574] font-medium transition-colors"
             >
               Beranda
             </button>
-            <button className="text-amber-800 font-bold border-b-2 border-amber-800 pb-0.5 transition-colors">
+            <button className="text-[#C4A574] font-bold border-b-2 border-[#C4A574] pb-0.5 transition-colors">
               Menu
             </button>
 
             {/* Tombol Keranjang di Navbar (Sudah Aktif) */}
             <button
               onClick={handleCartClick}
-              className="relative p-2 text-stone-600 hover:text-amber-800 transition-colors"
+              className="relative p-2 text-stone-600 hover:text-[#C4A574] transition-colors"
             >
               <ShoppingBag className="h-6 w-6" />
               {totalItems > 0 && (
@@ -536,7 +541,7 @@ const Navbar = ({ cart }) => {
             >
               Beranda
             </button>
-            <button className="block w-full text-left px-3 py-3 text-base font-bold text-amber-800 bg-amber-50 rounded-md">
+            <button className="block w-full text-left px-3 py-3 text-base font-bold text-[#C4A574] bg-[#C4A574]/10 rounded-md">
               Menu
             </button>
             <button
@@ -564,7 +569,7 @@ const Footer = () => {
                 alt="Kopi Senja Logo"
                 className="h-10 w-10 object-contain"
               />
-              <span className="font-bold text-lg text-amber-900">
+              <span className="font-bold text-lg text-[#C4A574]">
                 Kopi Senja
               </span>
             </div>
@@ -576,7 +581,7 @@ const Footer = () => {
                 <Instagram className="w-5 h-5 text-stone-400" />
               </div>
               <div className="bg-white p-2.5 rounded-full shadow-sm">
-                <Facebook className="w-5 h-5 text-stone-400" />
+                <TikTok className="w-5 h-5 text-stone-400" />
               </div>
             </div>
           </div>
@@ -586,18 +591,18 @@ const Footer = () => {
             </h3>
             <ul className="space-y-4 text-base text-stone-600">
               <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-amber-700 mt-1" />
+                <MapPin className="w-4 h-4 text-[#C4A574] mt-1" />
                 <span>
                   Jl. Raya Banaran, Sekaran, Kec. Gn. Pati, Kota Semarang, Jawa
                   Tengah 50229
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-amber-700" />
+                <Phone className="w-4 h-4 text-[#C4A574]" />
                 <span>+62 812-3456-7890</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-amber-700" />
+                <Mail className="w-4 h-4 text-[#C4A574]" />
                 <span>halo@kopisenja.com</span>
               </li>
             </ul>
@@ -606,7 +611,7 @@ const Footer = () => {
             <h3 className="text-stone-900 font-bold text-lg mb-6">Jam Buka</h3>
             <ul className="space-y-4 text-base text-stone-600">
               <li className="flex items-start gap-3">
-                <Clock className="w-4 h-4 text-amber-700 mt-1" />
+                <Clock className="w-4 h-4 text-[#C4A574] mt-1" />
                 <div>
                   <span className="block text-stone-900 font-bold">
                     Senin - Jumat
@@ -615,7 +620,7 @@ const Footer = () => {
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <Clock className="w-4 h-4 text-amber-700 mt-1" />
+                <Clock className="w-4 h-4 text-[#C4A574] mt-1" />
                 <div>
                   <span className="block text-stone-900 font-bold">
                     Sabtu - Minggu
@@ -746,12 +751,12 @@ const ProductDetailModal = ({ product, isOpen, onClose, onAddToCart }) => {
           </div>
 
           <p className="text-stone-500 mb-6 text-sm flex items-center gap-2">
-            <span className="bg-amber-100 text-amber-800 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wide">
+            <span className="bg-[#C4A574]/20 text-[#C4A574] px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wide">
               {product.category.replace("-", " ")}
             </span>
             (Belum Ada Rating)
           </p>
-          <p className="text-2xl font-bold text-amber-800 mb-6">
+          <p className="text-2xl font-bold text-[#C4A574] mb-6">
             Rp {product.price.toLocaleString("id-ID")}
           </p>
 
@@ -777,10 +782,10 @@ const ProductDetailModal = ({ product, isOpen, onClose, onAddToCart }) => {
                     >
                       <input
                         type="checkbox"
-                        className="w-5 h-5 rounded border-stone-300 text-amber-600 focus:ring-amber-500"
+                        className="w-5 h-5 rounded border-stone-300 text-[#C4A574] focus:ring-[#C4A574]"
                         onChange={() => handleDrinkExtraChange(opt)}
                       />
-                      <span className="text-stone-600 group-hover:text-amber-800 transition">
+                      <span className="text-stone-600 group-hover:text-[#C4A574] transition">
                         {opt}
                       </span>
                     </label>
@@ -798,8 +803,8 @@ const ProductDetailModal = ({ product, isOpen, onClose, onAddToCart }) => {
                       onClick={() => setSugarLevel(level)}
                       className={`py-2 rounded-lg text-sm font-medium border ${
                         sugarLevel === level
-                          ? "bg-amber-800 text-white border-amber-800"
-                          : "bg-white text-stone-600 border-stone-200 hover:border-amber-800"
+                          ? "bg-[#C4A574] text-white border-[#C4A574]"
+                          : "bg-white text-stone-600 border-stone-200 hover:border-[#C4A574]"
                       }`}
                     >
                       {level}
@@ -826,10 +831,10 @@ const ProductDetailModal = ({ product, isOpen, onClose, onAddToCart }) => {
                     >
                       <input
                         type="checkbox"
-                        className="w-5 h-5 rounded border-stone-300 text-amber-600 focus:ring-amber-500"
+                        className="w-5 h-5 rounded border-stone-300 text-[#C4A574] focus:ring-[#C4A574]"
                         onChange={() => handleFoodExtraChange(opt)}
                       />
-                      <span className="text-stone-600 group-hover:text-amber-800 transition">
+                      <span className="text-stone-600 group-hover:text-[#C4A574] transition">
                         {opt}
                       </span>
                     </label>
@@ -848,8 +853,8 @@ const ProductDetailModal = ({ product, isOpen, onClose, onAddToCart }) => {
                         onClick={() => setSpicyLevel(level)}
                         className={`py-2 rounded-lg text-xs font-medium border ${
                           spicyLevel === level
-                            ? "bg-red-600 text-white border-red-600"
-                            : "bg-white text-stone-600 border-stone-200 hover:border-red-600"
+                            ? "bg-[#C4A574] text-white border-[#C4A574]"
+                            : "bg-white text-stone-600 border-stone-200 hover:border-[#C4A574]"
                         }`}
                       >
                         {level}
@@ -870,7 +875,7 @@ const ProductDetailModal = ({ product, isOpen, onClose, onAddToCart }) => {
               <span className="text-xs text-stone-400">{notes.length}/150</span>
             </div>
             <textarea
-              className="w-full border border-stone-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 bg-stone-50"
+              className="w-full border border-stone-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#C4A574] bg-stone-50"
               rows="2"
               placeholder={
                 isDrink
@@ -888,7 +893,7 @@ const ProductDetailModal = ({ product, isOpen, onClose, onAddToCart }) => {
             <div className="flex items-center gap-3 bg-stone-100 rounded-full px-4 py-2">
               <button
                 onClick={() => quantity > 1 && setQuantity((q) => q - 1)}
-                className="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm text-stone-600 hover:text-amber-800 disabled:opacity-50"
+                className="w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm text-stone-600 hover:text-[#C4A574] disabled:opacity-50"
               >
                 <Minus className="w-4 h-4" />
               </button>
@@ -897,7 +902,7 @@ const ProductDetailModal = ({ product, isOpen, onClose, onAddToCart }) => {
               </span>
               <button
                 onClick={() => setQuantity((q) => q + 1)}
-                className="w-8 h-8 flex items-center justify-center bg-amber-800 rounded-full shadow-sm text-white hover:bg-amber-900"
+                className="w-8 h-8 flex items-center justify-center bg-[#C4A574] rounded-full shadow-sm text-white hover:bg-[#B69565]"
               >
                 <Plus className="w-4 h-4" />
               </button>
@@ -905,7 +910,7 @@ const ProductDetailModal = ({ product, isOpen, onClose, onAddToCart }) => {
 
             <button
               onClick={handleConfirm}
-              className="flex-1 bg-amber-800 text-white py-3 rounded-xl font-bold hover:bg-amber-900 transition shadow-lg shadow-amber-900/20"
+              className="flex-1 bg-[#C4A574] text-white py-3 rounded-xl font-bold hover:bg-[#B69565] transition shadow-lg"
             >
               + Rp{" "}
               {(
@@ -1021,7 +1026,7 @@ const Menu = () => {
                     onClick={() => setActiveCategory(cat.id)}
                     className={`text-left px-5 py-3 rounded-xl text-sm font-medium transition-all whitespace-nowrap ${
                       activeCategory === cat.id
-                        ? "bg-amber-800 text-white shadow-md"
+                        ? "bg-[#C4A574] text-white shadow-md"
                         : "text-stone-500 hover:bg-stone-50 hover:text-stone-800"
                     }`}
                   >
@@ -1039,7 +1044,7 @@ const Menu = () => {
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
                   <h1 className="font-bold text-3xl md:text-4xl text-stone-900 mb-1">
-                    Halo, <span className="text-amber-800">{customerName}</span>
+                    Halo, <span className="text-[#C4A574]">{customerName}</span>
                   </h1>
                   <p className="text-stone-500 text-sm md:text-base">
                     Pilih menu favorit Anda dari{" "}
@@ -1050,7 +1055,7 @@ const Menu = () => {
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="text-lg md:text-xl font-bold text-amber-800">
+                  <p className="text-lg md:text-xl font-bold text-[#C4A574]">
                     Meja {tableNumber}
                   </p>
                 </div>
@@ -1077,7 +1082,7 @@ const Menu = () => {
                       }}
                       className={`block w-full text-left px-4 py-2 rounded-lg text-sm ${
                         sortOrder === "az"
-                          ? "bg-amber-50 text-amber-800"
+                          ? "bg-[#C4A574]/10 text-[#C4A574]"
                           : "hover:bg-stone-50"
                       }`}
                     >
@@ -1090,7 +1095,7 @@ const Menu = () => {
                       }}
                       className={`block w-full text-left px-4 py-2 rounded-lg text-sm ${
                         sortOrder === "za"
-                          ? "bg-amber-50 text-amber-800"
+                          ? "bg-[#C4A574]/10 text-[#C4A574]"
                           : "hover:bg-stone-50"
                       }`}
                     >
@@ -1103,7 +1108,7 @@ const Menu = () => {
                       }}
                       className={`block w-full text-left px-4 py-2 rounded-lg text-sm ${
                         sortOrder === "low-high"
-                          ? "bg-amber-50 text-amber-800"
+                          ? "bg-[#C4A574]/10 text-[#C4A574]"
                           : "hover:bg-stone-50"
                       }`}
                     >
@@ -1116,7 +1121,7 @@ const Menu = () => {
                       }}
                       className={`block w-full text-left px-4 py-2 rounded-lg text-sm ${
                         sortOrder === "high-low"
-                          ? "bg-amber-50 text-amber-800"
+                          ? "bg-[#C4A574]/10 text-[#C4A574]"
                           : "hover:bg-stone-50"
                       }`}
                     >
@@ -1155,7 +1160,7 @@ const Menu = () => {
                       onClick={() => openProductDetail(item)}
                     >
                       <div className="absolute top-2 right-2 z-10 bg-white/80 backdrop-blur-sm px-1.5 py-0.5 rounded text-[10px] font-bold flex items-center gap-1">
-                        <Star className="w-3 h-3 text-amber-500 fill-amber-500" />{" "}
+                        <Star className="w-3 h-3 text-[#C4A574] fill-[#C4A574]" />{" "}
                         {item.rating}
                       </div>
                       <img
@@ -1179,7 +1184,7 @@ const Menu = () => {
                       </p>
                       <button
                         onClick={() => openProductDetail(item)}
-                        className="p-2 bg-amber-50 text-amber-800 rounded-lg hover:bg-amber-800 hover:text-white transition shadow-sm"
+                        className="p-2 bg-[#C4A574]/10 text-[#C4A574] rounded-lg hover:bg-[#C4A574] hover:text-white transition shadow-sm"
                       >
                         <Plus className="h-5 w-5" />
                       </button>

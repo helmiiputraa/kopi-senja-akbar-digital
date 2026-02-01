@@ -18,8 +18,14 @@ import {
   Mail,
   Clock,
   Instagram,
-  Facebook,
 } from "lucide-react";
+
+// Custom TikTok Icon
+const TikTok = ({ className }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+  </svg>
+);
 
 // --- COMPONENT NAVBAR ---
 const Navbar = ({ cartCount }) => {
@@ -39,22 +45,22 @@ const Navbar = ({ cartCount }) => {
               alt="Kopi Senja Logo"
               className="h-10 w-10 object-contain"
             />
-            <span className="font-bold text-xl text-amber-900">Kopi Senja</span>
+            <span className="font-bold text-xl text-[#C4A574]">Kopi Senja</span>
           </div>
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => navigate("/")}
-              className="text-stone-600 hover:text-amber-800 font-medium transition-colors"
+              className="text-stone-600 hover:text-[#C4A574] font-medium transition-colors"
             >
               Beranda
             </button>
             <button
               onClick={() => navigate("/menu")}
-              className="text-stone-600 hover:text-amber-800 font-medium transition-colors"
+              className="text-stone-600 hover:text-[#C4A574] font-medium transition-colors"
             >
               Menu
             </button>
-            <button className="relative p-2 text-amber-800 transition-colors">
+            <button className="relative p-2 text-[#C4A574] transition-colors">
               <ShoppingBag className="h-6 w-6" />
               {cartCount > 0 && (
                 <span className="absolute top-0 right-0 h-4 w-4 bg-red-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full">
@@ -113,7 +119,7 @@ const Footer = () => {
                 alt="Kopi Senja Logo"
                 className="h-10 w-10 object-contain"
               />
-              <span className="font-bold text-lg text-amber-900">
+              <span className="font-bold text-lg text-[#C4A574]">
                 Kopi Senja
               </span>
             </div>
@@ -126,7 +132,7 @@ const Footer = () => {
                 <Instagram className="w-5 h-5 text-stone-400" />
               </div>
               <div className="bg-white p-2.5 rounded-full shadow-sm">
-                <Facebook className="w-5 h-5 text-stone-400" />
+                <TikTok className="w-5 h-5 text-stone-400" />
               </div>
             </div>
           </div>
@@ -137,18 +143,18 @@ const Footer = () => {
             </h3>
             <ul className="space-y-4 text-base text-stone-600">
               <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-amber-700 mt-1" />
+                <MapPin className="w-4 h-4 text-[#C4A574] mt-1" />
                 <span>
                   Jl. Raya Banaran, Sekaran, Kec. Gn. Pati, Kota Semarang, Jawa
                   Tengah 50229
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-amber-700" />
+                <Phone className="w-4 h-4 text-[#C4A574]" />
                 <span>+62 812-3456-7890</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-amber-700" />
+                <Mail className="w-4 h-4 text-[#C4A574]" />
                 <span>halo@kopisenja.com</span>
               </li>
             </ul>
@@ -158,7 +164,7 @@ const Footer = () => {
             <h3 className="text-stone-900 font-bold text-lg mb-6">Jam Buka</h3>
             <ul className="space-y-4 text-base text-stone-600">
               <li className="flex items-start gap-3">
-                <Clock className="w-4 h-4 text-amber-700 mt-1" />
+                <Clock className="w-4 h-4 text-[#C4A574] mt-1" />
                 <div>
                   <span className="block text-stone-900 font-bold">
                     Senin - Jumat
@@ -167,7 +173,7 @@ const Footer = () => {
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <Clock className="w-4 h-4 text-amber-700 mt-1" />
+                <Clock className="w-4 h-4 text-[#C4A574] mt-1" />
                 <div>
                   <span className="block text-stone-900 font-bold">
                     Sabtu - Minggu
@@ -243,8 +249,8 @@ const OrderSummary = () => {
         {/* KONDISI: KERANJANG KOSONG */}
         {cartData.length === 0 ? (
           <div className="max-w-md mx-auto text-center py-12 animate-fade-in">
-            <div className="w-40 h-40 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">
-              <ShoppingBag className="w-20 h-20 text-amber-800 opacity-50" />
+            <div className="w-40 h-40 bg-[#C4A574]/20 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">
+              <ShoppingBag className="w-20 h-20 text-[#C4A574] opacity-50" />
             </div>
             <h2 className="text-3xl font-bold text-stone-800 mb-3">
               Keranjang Kosong
@@ -256,7 +262,7 @@ const OrderSummary = () => {
             </p>
             <button
               onClick={() => navigate("/menu")}
-              className="bg-amber-800 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-amber-900 transition shadow-lg hover:shadow-amber-900/20 transform hover:-translate-y-1"
+              className="bg-[#C4A574] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#B69565] transition shadow-lg transform hover:-translate-y-1"
             >
               Lihat Menu
             </button>
@@ -282,7 +288,7 @@ const OrderSummary = () => {
                     <p className="text-xs text-stone-400 uppercase font-bold mb-1">
                       Total Bayar
                     </p>
-                    <p className="text-2xl font-bold text-amber-800">
+                    <p className="text-2xl font-bold text-[#C4A574]">
                       Rp {grandTotal.toLocaleString("id-ID")}
                     </p>
                   </div>
@@ -291,7 +297,7 @@ const OrderSummary = () => {
                       localStorage.removeItem("cart");
                       navigate("/");
                     }}
-                    className="w-full bg-amber-800 text-white py-3.5 rounded-xl font-bold hover:bg-amber-900 transition flex items-center justify-center gap-2"
+                    className="w-full bg-[#C4A574] text-white py-3.5 rounded-xl font-bold hover:bg-[#B69565] transition flex items-center justify-center gap-2"
                   >
                     <Home className="w-5 h-5" /> Kembali ke Beranda
                   </button>
@@ -329,7 +335,7 @@ const OrderSummary = () => {
                       <p className="text-xs text-stone-400 font-bold uppercase tracking-wider">
                         Meja
                       </p>
-                      <p className="font-bold text-lg text-amber-800">
+                      <p className="font-bold text-lg text-[#C4A574]">
                         #{tableNumber}
                       </p>
                     </div>
@@ -372,7 +378,7 @@ const OrderSummary = () => {
                               <p>• + {item.options.extras.join(", ")}</p>
                             )}
                             {item.notes && (
-                              <p className="italic text-amber-700 mt-1">
+                              <p className="italic text-[#C4A574] mt-1">
                                 "{item.notes}"
                               </p>
                             )}
@@ -397,8 +403,8 @@ const OrderSummary = () => {
                       onClick={() => setPaymentMethod("qris")}
                       className={`p-3 rounded-xl border-2 flex flex-col items-center justify-center gap-2 transition-all ${
                         paymentMethod === "qris"
-                          ? "border-amber-600 bg-amber-50 text-amber-900"
-                          : "border-stone-100 hover:border-amber-200"
+                          ? "border-[#C4A574] bg-[#C4A574]/10 text-[#B69565]"
+                          : "border-stone-100 hover:border-[#C4A574]/50"
                       }`}
                     >
                       <QrCode className="w-6 h-6" />
@@ -408,8 +414,8 @@ const OrderSummary = () => {
                       onClick={() => setPaymentMethod("cash")}
                       className={`p-3 rounded-xl border-2 flex flex-col items-center justify-center gap-2 transition-all ${
                         paymentMethod === "cash"
-                          ? "border-amber-600 bg-amber-50 text-amber-900"
-                          : "border-stone-100 hover:border-amber-200"
+                          ? "border-[#C4A574] bg-[#C4A574]/10 text-[#B69565]"
+                          : "border-stone-100 hover:border-[#C4A574]/50"
                       }`}
                     >
                       <Banknote className="w-6 h-6" />
@@ -452,7 +458,7 @@ const OrderSummary = () => {
                   <button
                     onClick={handlePayment}
                     disabled={isProcessing}
-                    className="w-full bg-amber-800 text-white py-4 rounded-2xl font-bold text-lg hover:bg-amber-900 transition flex items-center justify-center gap-2 shadow-xl shadow-amber-900/20 disabled:opacity-70 active:scale-95 transform duration-200"
+                    className="w-full bg-[#C4A574] text-white py-4 rounded-2xl font-bold text-lg hover:bg-[#B69565] transition flex items-center justify-center gap-2 shadow-xl disabled:opacity-70 active:scale-95 transform duration-200"
                   >
                     {isProcessing ? (
                       <span className="animate-pulse">Memproses...</span>
