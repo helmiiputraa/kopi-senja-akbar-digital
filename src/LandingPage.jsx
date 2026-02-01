@@ -480,7 +480,7 @@ const Testimonials = () => {
             {reviews.map((item) => (
               <div
                 key={item.id}
-                className="bg-stone-50 p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-stone-100 hover:border-[#C4A574]/50 transition-colors relative"
+                className="bg-stone-50 p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-stone-100 hover:border-[#C4A574]/50 transition-colors relative flex flex-col"
               >
                 <div className="absolute top-4 right-5 sm:top-6 sm:right-8 text-4xl sm:text-6xl text-[#C4A574]/30 font-serif leading-none">
                   "
@@ -497,11 +497,11 @@ const Testimonials = () => {
                   ))}
                 </div>
 
-                <p className="text-stone-600 mb-6 sm:mb-8 italic relative z-10 text-sm sm:text-base md:text-lg leading-relaxed">
+                <p className="text-stone-600 mb-6 sm:mb-8 italic relative z-10 text-sm sm:text-base md:text-lg leading-relaxed flex-grow">
                   "{item.text}"
                 </p>
 
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 mt-auto">
                   <img
                     src={item.img}
                     alt={item.name}
